@@ -10,22 +10,55 @@
 
         <h2 class="headline-1 section-title">Calidad en Telones para Todos</h2>
 
-        <p class="section-text">
+        <p class="section-text body-3">
           Somos una empresa especializada en la fabricación de telones de alta
           calidad. Nos comprometemos a ofrecer productos duraderos y adaptados a
           las necesidades de nuestros clientes, garantizando funcionalidad y
           estilo en cada pieza.
         </p>
 
-        <a href="#" class="btn btn-primary">
+        <button class="btn btn-primary" @click="toggleModal">
           <span class="text text-1">Conoce Más</span>
-
           <span class="text text-2" aria-hidden="true">Conoce Más</span>
-        </a>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div v-if="isModalOpen" class="modal-overlay" @click.self="toggleModal">
+      <div class="modal">
+        <button class="modal-close" @click="toggleModal">×</button>
+        <h3 class="title-3">Sobre Telones Benito</h3>
+        <p class="body-3">
+          Telones Benito es una empresa con años de experiencia en la
+          fabricación de telones de alta calidad. Nuestros productos están
+          diseñados para satisfacer las necesidades específicas de nuestros
+          clientes, garantizando durabilidad, funcionalidad y diseño innovador.
+        </p>
+        <p class="body-3">
+          Nos enorgullecemos de utilizar materiales de primera calidad y ofrecer
+          un servicio excepcional que asegura la satisfacción de nuestros
+          clientes.
+        </p>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isModalOpen: false,
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .about .section-text {
@@ -39,60 +72,69 @@
 
 .about .container {
   display: grid;
-  gap: 120px;
+  gap: var(--section-space);
 }
 
-.about-banner {
-  position: relative;
-  margin-block-end: 120px;
-}
-
-.about-banner > .w-100 {
-  padding-inline-start: 50px;
-}
-
-.about .abs-img {
-  position: absolute;
-}
-
-.about .abs-img::before {
-  z-index: -1;
-}
-
-.about .abs-img-1 {
-  bottom: -120px;
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 150px;
-  padding-block: 50px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-alpha-80);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
 }
 
-.about .abs-img-2 {
-  top: -65px;
-  right: 0;
-  overflow: hidden;
+.modal {
+  background-color: var(--eerie-black-1); /* Fondo gris */
+  padding: 20px;
+  border-radius: var(--radius-24);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-1);
+  position: relative;
 }
 
-@media (min-width: 992px) {
-  .about .container {
-    gap: 30px;
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: var(--fontSize-body-2);
+  font-family: var(--fontFamily-dm_sans);
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #fff; /* Color claro para el botón de cerrar */
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  color: #fff; /* Color blanco para el título */
+}
+
+.modal p {
+  margin-bottom: 10px;
+  color: #fff; /* Color blanco para el texto */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .modal {
+    padding: 15px;
+    border-radius: var(--radius-24);
   }
-}
 
-@media (min-width: 1200px) {
-  .about {
-    padding-block: 170px 170px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .about-content {
-    padding-inline-end: 90px;
+  .modal h3 {
+    font-size: var(--fontSize-title-2);
   }
 
-  .about .shape {
-    display: block;
-    top: 46%;
-    left: 0;
+  .modal p {
+    font-size: var(--fontSize-body-4);
   }
 }
 </style>

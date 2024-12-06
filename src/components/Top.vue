@@ -1,31 +1,36 @@
 <template>
   <div class="topbar">
     <div class="container">
-      <address class="topbar-item">
+      <!-- Dirección -->
+      <a
+        href="https://www.google.com/maps?q=Av.+Garc%C3%ADa+del+R%C3%ADo+2416,+Aut%C3%B3noma+de+Buenos+Aires"
+        target="_blank"
+        class="topbar-item link"
+      >
         <div class="icon">
           <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
         </div>
 
         <span class="span">
-            Núñez, CABA
+          Av. García del Río 2416. Autónoma de Buenos Aires
         </span>
-      </address>
+      </a>
 
-      <div class="topbar-item item-2">
+      <div class="topbar-item item-2"></div>
 
-      </div>
-
+      <!-- Teléfono -->
       <a href="tel:+11234567890" class="topbar-item link">
         <div class="icon">
           <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
         </div>
 
-        <span class="span">+1 123 456 7890</span>
+        <span class="span">011 4940 2373</span>
       </a>
 
       <div class="separator"></div>
 
-      <a href="mailto:booking@restaurant.com" class="topbar-item link">
+      <!-- Correo -->
+      <a href="mailto:telonesbenito@gmail.com" class="topbar-item link">
         <div class="icon">
           <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
         </div>
@@ -37,9 +42,13 @@
 </template>
 
 <style>
-.topbar{display: none;}
+.topbar {
+  display: none;
+}
+
 @media (min-width: 575px) {
   .topbar {
+    background-color: transparent;
     display: block;
     position: fixed;
     top: 0;
@@ -47,7 +56,7 @@
     width: 100%;
     padding-block: 10px;
     border-block-end: 1px solid var(--white-alpha-20);
-    z-index: 4;
+    z-index: 9999; 
     transition: var(--transition-1);
   }
 

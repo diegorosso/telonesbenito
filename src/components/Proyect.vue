@@ -1,5 +1,5 @@
 <template>
-  <section class="special-dish text-center" aria-labelledby="dish-label">
+  <section class="special-dish text-center" aria-labelledby="dish-label" id="proyectos">
     <div class="special-dish-banner">
       <video
         src="../assets/imagenes/APERTURA A LA ITALIANA.mp4"

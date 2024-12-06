@@ -1,6 +1,6 @@
 <template>
   <section class="section testi text-center" aria-label="testimonials">
-    <h2 class="headline-1 section-title">Reseña de Google</h2>
+<!--     <h2 class="headline-1 section-title">Reseña de Google</h2> -->
     <div class="container">
       <p
         class="headline-2 otrafuente testi-text"
@@ -142,7 +142,6 @@ export default {
   transform: translateY(0);
 }
 
-/* Animación de rotación */
 @keyframes rotate360 {
   0% {
     transform: rotate(0deg);

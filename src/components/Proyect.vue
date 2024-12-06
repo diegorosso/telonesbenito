@@ -42,15 +42,15 @@
 </template>
 
 <script>
-import Galery from './Galery.vue'; // Asegúrate de importar el componente Galery
+import Galery from "./Galery.vue"; // Asegúrate de importar el componente Galery
 
 export default {
   components: {
-    Galery
+    Galery,
   },
   data() {
     return {
-      showGallery: false
+      showGallery: false,
     };
   },
   methods: {
@@ -59,8 +59,8 @@ export default {
     },
     closeGallery() {
       this.showGallery = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -108,10 +108,10 @@ export default {
 }
 
 .modal-content {
-  background-color:#161718;
+  background-color: #161718;
   padding: 20px;
   border-radius: 8px;
-/*   max-width: 80%;
+  /*   max-width: 80%;
   max-height: 80%; */
   overflow-y: auto;
   width: 80%;
@@ -140,6 +140,11 @@ export default {
   .special-dish-content {
     margin-top: -1rem;
   }
+
+  .modal-content {
+    width: 100%;
+  }
+
 }
 
 @media (min-width: 992px) {

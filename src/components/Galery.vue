@@ -7,16 +7,15 @@
 
       <div class="image-container">
         <img :src="images[currentIndex]" alt="photo" class="img-cover" />
-      </div>
 
-      <div class="controls">
-        <button class="btn" @click="prevImage">
-          <span class="text-1">Previous</span>
-          <span class="text-2">Previous</span>
+        <!-- Flecha Izquierda -->
+        <button class="arrow left-arrow" @click="prevImage">
+          <ion-icon name="chevron-back-outline"></ion-icon>
         </button>
-        <button class="btn" @click="nextImage">
-          <span class="text-1">Next</span>
-          <span class="text-2">Next</span>
+
+        <!-- Flecha Derecha -->
+        <button class="arrow right-arrow" @click="nextImage">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
         </button>
       </div>
     </div>
@@ -78,68 +77,67 @@ export default {
   position: relative;
   margin: 20px 0;
   width: 100%;
-  height: 400px; /* Fijo el alto de la imagen para mantener el tamaño consistente */
+  height: 660px; /* Fijo el alto de la imagen */
   overflow: hidden;
 }
 
 .img-cover {
   width: 100%;
-  height: 100%; /* Aseguramos que la altura también sea fija */
-  object-fit: cover; /* Mantiene la imagen dentro del contenedor sin distorsionarla */
+  height: 100%; /* Fijo el alto de la imagen */
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 20rem;
-  margin-top: 7rem;
-}
-
-.btn {
-  background-color: transparent;
-  border: 2px solid var(--gold-crayola);
-  color: var(--gold-crayola);
-  padding: 12px 45px;
-  text-transform: uppercase;
-  letter-spacing: var(--letterSpacing-5);
-  font-weight: var(--weight-bold);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.btn .text-1 {
-  color: var(--gold-crayola);
-  transition: transform 0.3s ease;
-}
-
-.btn:hover .text-1 {
-  transform: translateY(-5px);
-}
-
-.btn::before {
-  content: "";
+/* Estilo para las flechas */
+.arrow {
   position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200%;
-  height: 200%;
-  background-color: var(--gold-crayola);
-  transition: var(--transition-2);
-  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: var(--gold-crayola);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
 }
 
-.btn:hover::before {
-  bottom: -50%;
+.arrow:hover {
+  background-color: var(--gold-crayola);
+  color: var(--eerie-black-1);
 }
+
+.left-arrow {
+  left: 10px; /* Ajusta la distancia del borde izquierdo */
+}
+
+.right-arrow {
+  right: 10px; /* Ajusta la distancia del borde derecho */
+}
+
+.arrow ion-icon {
+  font-size: 24px;
+}
+
 @media (max-width: 576px) {
-  .controls {
-    gap: 0;
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrow ion-icon {
+    font-size: 20px;
+  }
+
+  .image-container {
+    height: 500px;
   }
 }
-
 
 @media (min-width: 992px) {
   .photo-gallery {

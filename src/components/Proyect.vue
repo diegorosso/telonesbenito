@@ -99,23 +99,20 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  background-color: rgba(0, 0, 0, 0.7); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Asegura que el modal esté por encima de todo */
-  pointer-events: auto; /* Asegura que el modal sea interactuable */
+  z-index: 9999; 
+  pointer-events: auto; 
 }
 
 .modal-content {
   background-color: #161718;
-  padding: 20px;
   border-radius: 8px;
-  /*   max-width: 80%;
-  max-height: 80%; */
   overflow-y: auto;
   width: 80%;
-  z-index: 10000; /* Asegura que el contenido del modal esté encima */
+  z-index: 10000; 
 }
 
 .close-btn {
